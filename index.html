@@ -5,61 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script async type="module" src="collezione.mjs"> </script>
 		<script type="module" src="index.mjs"> </script>
-		<!--script>
-			import Cookie from './collezione.mjs'
-			window.onload = () => {
-				const cookie = Cookie.getJSON('collezione')
-				console.log(cookie)
-				const numover = '#588494',
-					numbgover = '#ffef2e',
-					numout = '#efe2bd',
-					numbgout = '#b31010',
-					numactive = '#234854',
-					numbgactive = '#ffd422',
-					active = (num,pic) => {
-							pic && pic.setAttribute('style','filter: contrast(90%) brightness(85%) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4))');
-							num.style.backgroundColor = numbgactive;
-							num.style.color = numactive;
-					},
-					out = (num,pic) => {
-							pic && pic.setAttribute('style','filter: contrast(100%) brightness(100%) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3))');
-							num.style.backgroundColor = numbgout;
-							num.style.color = numout;
-					},
-					over = num => {
-							num.style.backgroundColor = numbgover;
-							num.style.color = numover;
-					},
-					cars=[],
-					have=[0,3,7,12,15,16];
-
-				document.querySelectorAll('.car').forEach(car => {
-					//console.log(car);
-					const cb = car.childNodes[0].childNodes[0];
-					//console.log(cb);
-					cb.checked = false;
-
-					const num = car.querySelector('.number');
-					const pic = car.querySelector('.pic');
-					car.onclick = () => {
-						!cb.checked ? active(num,pic) : out(num,pic);
-						cb.name="name" autocomplete="no" checked=!cb.checked;
-					}
-					car.onmouseover = () => {
-						!cb.checked && over(num);
-					}
-					car.onmouseout = () => {
-						!cb.checked ? out(num) : active(num);
-					}
-					cars.push(car);
-
-				})
-				//	console.log(cars[0]);
-				for (i of have) {
-					cars[i].click();
-				}
-			};
-		</script-->
 		<style type="text/css">
 body {
 	font-family: sans-serif;
@@ -156,7 +101,9 @@ img {
 	left: 188px;
 	font-size: 14px;
 	font-weight: bold;
+    	white-space: nowrap;
 	max-width: 72px;
+	text-align: center;
 	padding: 0;
 	border-top: 20px solid #e9e7dc;
 	border-bottom: 0 solid #e9e7dc;
