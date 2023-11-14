@@ -1,13 +1,17 @@
-
 import { Cookie } from './collezione.mjs'
+
 let owned = [],
 	init = false;
-try {
-	const cookie = Cookie.getJSON('collezione')
-	owned = cookie
-} catch (e) {
-}
-const numover = '#588494',
+
+const getcookie = () => {
+	return Cookie.getJSON('collezione')
+},
+	autoclick = () => {
+		for (let i of owned) {
+			cars[i-1].click();
+		}
+	},
+	numover = '#588494',
 	numbgover = '#ffef2e',
 	numout = '#efe2bd',
 	numbgout = '#b31010',
@@ -28,6 +32,11 @@ const numover = '#588494',
 		num.style.color = numover;
 	},
 	cars=[];
+
+try {
+	owned = getcookie()
+} catch (e) {
+}
 
 document.querySelectorAll('.car').forEach(car => {
 	const cb = car.childNodes[0].childNodes[0];
@@ -59,8 +68,11 @@ document.querySelectorAll('.car').forEach(car => {
 	cars.push(car);
 
 })
-console.log(owned);
-for (let i of owned) {
-	cars[i-1].click();
+
+document.querySelector('button').onclick = () => {
+	//document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+	autoclick()
 }
+
+autoclick()
 init = true
